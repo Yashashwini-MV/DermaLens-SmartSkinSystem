@@ -101,11 +101,11 @@ Makeup dynamically follows head movement — full landmark-tracked rendering.
 
 ## 📥 Installation
 
-```bash
 git clone https://github.com/YourRepoName/DermaLens-AI.git
 cd DermaLens-AI
 pip install -r requirements.txt
 python app.py   # or main.py
+
 
 🌍 Use Cases
 Scenario	Impact
