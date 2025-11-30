@@ -47,7 +47,7 @@ Gesture	Action
 🖐 Open Palm	Clear/remove applied result
 👐 Both Hands	Go back / Home mode
 📥 Installation
-git clone https://github.com/YourName/DermaLens-AI.git
+git clone (https://github.com/Yashashwini-MV/DermaLens-SmartSkinSystem)
 cd DermaLens-AI
 pip install -r requirements.txt
 python app.py   # or main.py
@@ -69,6 +69,8 @@ python app.py   # or main.py
 👩‍💻 Contributors
 Name	Role
 Yashashwini M V	Developer • UI + Vision Pipeline
+S Pavithra Devi
+Ananya A
 + 2 More Developers	Gesture Logic • Inpainting System • Integration
 ⭐ Why DermaLens Matters
 
