@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Beauty Smart Mirror</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- MediaPipe libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="video-container">
+      <video id="inputVideo" playsinline></video>
+      <canvas id="outputCanvas"></canvas>
+
+      <div id="mode-label"></div>
+      <div id="instructions"></div>
+
+      <!-- UI overlay: clock + right side content -->
+      <div id="overlay">
+        <!-- left: time -->
+        <div id="home-time">
+          <div id="home-clock">10:29</div>
+          <div id="home-date">Thu, Nov 30, 2025</div>
+        </div>
+
+        <!-- right: home menu OR mode panels -->
+        <div id="side-panel">
+          <!-- HOME MENU -->
+          <div id="home-menu">
+            <div class="home-item">
+              <div class="home-num-circle">1</div>
+              <div class="home-icon home-icon-play"></div>
+              <div class="home-text">Skin Analysis</div>
+            </div>
+
+            <div class="home-item">
+              <div class="home-num-circle">2</div>
+              <div class="home-icon home-icon-stop"></div>
+              <div class="home-text">Makeup Overlay</div>
+            </div>
+
+            <div class="home-item">
+              <div class="home-num-circle">3</div>
+              <div class="home-icon home-icon-play"></div>
+              <div class="home-text">Skin Burnt Patch</div>
+            </div>
+          </div>
+
+          <!-- MODE PANELS (shown only in their modes) -->
+          <div id="analysis-panel" class="panel hidden">
+            <h2>Skin Analysis</h2>
+            <p><strong>Skin Type:</strong> <span id="sa-type">-</span></p>
+            <p><strong>Acne Level:</strong> <span id="sa-acne">-</span></p>
+            <p><strong>Skin Tone:</strong> <span id="sa-tone">-</span></p>
+            <p><strong>T-Zone:</strong> <span id="sa-tzone">-</span></p>
+            <p><strong>Recommendations:</strong></p>
+            <ul id="sa-recommendations"></ul>
+          </div>
+
+          <div id="makeup-panel" class="panel hidden">
+            <h2>Makeup Overlay</h2>
+            <p>
+              Point to lips = apply lipstick.<br>
+              Point to cheeks = apply blush.<br>
+              Fist = change shade.<br>
+              Open hand = clear makeup.<br>
+              BOTH hands open = go home.
+            </p>
+          </div>
+
+          <div id="patch-panel" class="panel hidden">
+            <h2>Skin Patch</h2>
+            <p>
+              Fist = cover patch with healthy skin.<br>
+              Open hand = remove patch.<br>
+              BOTH hands open = go home.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/gestures.js"></script>
+  <script src="js/analysis.js"></script>
+  <script src="js/makeup.js"></script>
+  <script src="js/patch.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
