@@ -96,6 +96,7 @@ Makeup dynamically follows head movement — full landmark-tracked rendering.
 | 🖐 Open Palm | Clear overlays + remove patch |
 | 👐 Both Hands | Return to home mode |
 
+
 ---
 
 ## 📥 Installation
@@ -105,22 +106,19 @@ git clone https://github.com/YourRepoName/DermaLens-AI.git
 cd DermaLens-AI
 pip install -r requirements.txt
 python app.py   # or main.py
+
 🌍 Use Cases
 Scenario	Impact
-🛍 Touch-Free Cosmetic Trials	Try lipstick/blush instantly without testers
-🧑‍⚕️ Scar/Burn Patch Preview	Visual healing & confidence restoration
-🧪 Dermatology Evaluation	Acne, dark circles, oil levels, tone mapping
-🤖 Raspberry Pi Deployment	Lightweight, offline edge inference
-✋ Contactless Interaction	Hygienic — no touching required
-🎭 Personal Confidence Boost	Beauty & healing visualized safely
+🛍 Touch-Free Cosmetic Trials	Try lipstick/blush instantly without physical testers
+🧑‍⚕️ Scar/Burn Patch Preview	Visual healing & confidence restoration preview
+🔬 Dermatology Evaluation	Detect acne, dark circles, tone imbalance & oiliness
+🤖 Raspberry Pi Deployment	Runs offline, portable, ideal for clinic/store setups
+✋ Contactless Interaction	Fully hygienic — gesture controlled, zero-touch
+🌸 Personal Confidence Boost	Helps users visualize themselves comfortably & safely
+
 
 👩‍💻 Contributors
-Name	Primary Contributions
-Yashashwini M V	Gesture Recognition • Patch System • Integration
-S Pavithra Devi	Makeup Rendering • Interaction Flow • UI Refinement
-Ananya A	Skin Analysis Logic • LAB Evaluation • Landmark Metrics
-
-⭐ Why DermaLens Matters
-Beauty should not require courage.
-Confidence should not require touch.
-AI should not replace appearance — it should restore comfort.
+Name	Role
+Yashashwini M V	Gesture Recognition · Skin Patch Inpainting · Core Pipeline
+S Pavithra Devi	Makeup Rendering · UI/UX Interaction Flow · Output Aesthetics
+Ananya A	Skin Analysis Engine · LAB+HSV Computation · Landmark Mapping
