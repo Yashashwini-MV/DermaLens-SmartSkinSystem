@@ -9,9 +9,9 @@ Powered by **OpenCV + MediaPipe + Computer Vision.**
 ## 🚀 Overview
 
 **DermaLens-AI** is a gesture-controlled dermatological system designed for hygienic and inclusive beauty try-ons.  
-It evaluates skin condition, applies cosmetic overlays, and restores scarred / burnt areas using a **healthy-skin patch extraction algorithm** with inpainting.
+It evaluates skin condition, applies cosmetic overlays, and restores scarred/burnt areas using a **healthy-skin patch extraction algorithm** with inpainting.
 
-Built for individuals who avoid physical testers due to allergies, infections, or insecurity —  
+Built for individuals who avoid physical testers due to allergies, infection risk, or insecurity —  
 and for beauty stores & clinics seeking touch-free innovation.
 
 ---
@@ -21,10 +21,10 @@ and for beauty stores & clinics seeking touch-free innovation.
 | Feature | Description |
 |--------|-------------|
 | 🔍 **Skin Analysis** | Detects tone, dryness/oiliness, acne clusters, pigmentation & dark circles |
-| 💄 **Makeup Overlay (Virtual Try-On)** | Natural-looking lipstick, blush & eyeshadow rendered in real time |
-| ✨ **Skin Patch Reconstruction** | Identifies burnt/damaged skin & restores it using seamless texture inpainting |
-| 🖐 **Gesture Control UI** | Apply, switch modes, remove effects — all hands-free, no clicks |
-| 🎥 **Live Computer Vision Processing** | Runs at 30+ FPS on standard laptop webcam |
+| 💄 **Makeup Overlay (Virtual Try-On)** | Natural lipstick, blush & eyeshadow mapped in real time |
+| ✨ **Skin Patch Reconstruction** | Rebuilds burnt/damaged skin using seamless texture inpainting |
+| 🖐 **Gesture Control UI** | Apply/remove effects & switch modes with hand gestures only |
+| 🎥 **Live Computer Vision Pipeline** | Real-time rendering at 30+ FPS on a standard webcam |
 
 ---
 
@@ -32,26 +32,33 @@ and for beauty stores & clinics seeking touch-free innovation.
 
 | Category | Tools Used |
 |---------|------------|
-| **Computer Vision** | OpenCV • MediaPipe (FaceMesh + Hands) |
+| **Computer Vision** | OpenCV, MediaPipe (FaceMesh + Hands) |
 | **Programming Language** | Python |
-| **Image Restoration** | Telea & Poisson Inpainting |
-| **Makeup Rendering** | Pixel recoloring + alpha feather masks |
-| **Interface Output** | Web/Local visual display (Canvas/Frame rendering) |
+| **Image Repair System** | Telea + Poisson Inpainting |
+| **Makeup Rendering** | Pixel recoloring + alpha feather blend |
+| **UI Output** | Web/Local frame display |
 
 ---
 
 ## 🔬 How It Works
 
+Webcam → Face + Hand Tracking
+→ Landmark Mapping
+→ Mode Selection (Analysis / Makeup / Patch)
+→ Real-time Render Output
+
+yaml
+Copy code
 
 ---
 
 ### 🔍 Skin Analysis Engine
 
-- Tracks **468 facial landmarks**
-- Extracts LAB + HSV values across skin regions
-- Detects **acne, dryness, pigmentation, under-eye darkness**
-- Highlights T-zone oil distribution and tone imbalance
-- Converts raw pixels → dermatological insights
+- Uses **468 facial landmarks**
+- Reads LAB + HSV values from skin surface
+- Detects **acne, pigmentation, redness, dark circles**
+- Highlights **T-zone oiliness** and tone variation
+- Converts raw pixels to visual skin score inference
 
 ---
 
@@ -59,25 +66,25 @@ and for beauty stores & clinics seeking touch-free innovation.
 
 | Layer | Method |
 |-------|--------|
-| Lipstick | Hue shift + saturation mapping + boundary feathering |
-| Blush | Gaussian-soft cheek mapping using landmark region masking |
-| Eyeshadow | Gradient fill across eyelid mesh + soft blend |
-| Shade Switching | Fist gesture to cycle multiple color palettes |
-| Reset | Open palm gesture to clear instantly |
+| Lipstick | Hue shift + saturation boost + feathered edge mask |
+| Blush | Gaussian-soft cheek tint mapped through region mesh |
+| Eyeshadow | Gradient overlay blended over eyelid landmarks |
+| Shade Switch | Fist gesture cycles between color palettes |
+| Reset | Open palm clears all applied makeup |
 
-Makeup stays aligned as you move — because masks track landmarks at video framerate.
+Makeup dynamically follows head movement — full landmark-tracked rendering.
 
 ---
 
 ### ✨ Skin Patch Reconstruction (Signature Feature)
 
-1. Detect redness/scar using **LAB a\*-channel anomaly scoring**
-2. Confirm target region using face mask landmarks
-3. Sample neighbouring healthy pixels
-4. Rebuild damaged surface using **OpenCV inpainting**
-5. Feather edges for natural skin-matched finish
+1. Identify damaged areas using **LAB a\*-channel anomaly scoring**
+2. Validate region using face mask + contour thresholds
+3. Extract nearby healthy skin pixels
+4. Restore region using **OpenCV inpainting algorithms**
+5. Blend edges for smooth, natural healing preview
 
-> A preview of healing — gentle, realistic, and emotionally empowering.
+> A gentle visual preview of recovery — not concealment, but confidence.
 
 ---
 
@@ -86,8 +93,8 @@ Makeup stays aligned as you move — because masks track landmarks at video fram
 | Gesture | Action |
 |--------|--------|
 | ✊ Fist | Apply makeup / Switch shade / Trigger patch |
-| 🖐 Open Palm | Clear overlays & patch |
-| 👐 Both Hands | Return to base state / Home screen |
+| 🖐 Open Palm | Clear overlays + remove patch |
+| 👐 Both Hands | Return to home mode |
 
 ---
 
@@ -98,42 +105,22 @@ git clone https://github.com/YourRepoName/DermaLens-AI.git
 cd DermaLens-AI
 pip install -r requirements.txt
 python app.py   # or main.py
+🌍 Use Cases
+Scenario	Impact
+🛍 Touch-Free Cosmetic Trials	Try lipstick/blush instantly without testers
+🧑‍⚕️ Scar/Burn Patch Preview	Visual healing & confidence restoration
+🧪 Dermatology Evaluation	Acne, dark circles, oil levels, tone mapping
+🤖 Raspberry Pi Deployment	Lightweight, offline edge inference
+✋ Contactless Interaction	Hygienic — no touching required
+🎭 Personal Confidence Boost	Beauty & healing visualized safely
 
+👩‍💻 Contributors
+Name	Primary Contributions
+Yashashwini M V	Gesture Recognition • Patch System • Integration
+S Pavithra Devi	Makeup Rendering • Interaction Flow • UI Refinement
+Ananya A	Skin Analysis Logic • LAB Evaluation • Landmark Metrics
 
-## 🌍 Use Cases
-
-| Scenario | Impact |
-|---------|--------|
-| 🛍 Touch-Free Cosmetic Shade Trials | Customers try lipstick & blush instantly without swatches or testers |
-| 🧑‍⚕️ Skin Restoration Preview | Burn/Scar areas can be visualized with natural patch reconstruction |
-| 🧪 Dermatological Analysis Support | Identifies acne, oiliness, pigmentation, dark circles & dryness zones |
-| 🤖 Smart Beauty Interface on Raspberry Pi | Lightweight, deployable, portable & edge-processed with no cloud pairings |
-| ✋ Hygiene-First Interactions | 100% gesture-controlled — zero physical contact, zero contamination risk |
-| 🎭 Personal Confidence Boost | Users can preview healing, appearance improvement & makeup suitability safely |
-
----
-
-## 👩‍💻 Contributors
-
-| Name | Primary Contributions |
-|------|-----------------------|
-| **Yashashwini M V** | Gesture Recognition, Skin Patch Reconstruction, System Integration |
-| **S Pavithra Devi** | Makeup Overlay Rendering, UI Interaction Flow, Visual Output Refinement |
-| **Ananya A** | Skin Analysis Algorithms, LAB-Channel Evaluation, Landmark-Based Mapping |
-
----
-
-## ⭐ Why DermaLens Matters
-
-Beauty should never require courage.  
-Confidence should never require touching a tester used by hundreds.  
-AI should not enhance appearance — **it should enhance dignity.**
-
-DermaLens stands at that intersection:
-> Where skin is understood,  
-> where healing is visualized,  
-> and where beauty becomes safe, personal, and touch-free.
-
-Because beauty doesn’t need contact — it needs care.  
-Because scars don’t define identity — hope does.  
-And because the future of beauty is **vision-driven, hygienic, and human-centric.**  
+⭐ Why DermaLens Matters
+Beauty should not require courage.
+Confidence should not require touch.
+AI should not replace appearance — it should restore comfort.
